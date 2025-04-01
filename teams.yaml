@@ -1,1 +1,9 @@
-
+teams:
+  eu:
+    description: test 
+    members:
+    - osimonica27
+    - simona-olaru
+    - simona-olaru1
+    - simona-olaru2
+    privacy: closed
