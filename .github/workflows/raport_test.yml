@@ -14,11 +14,11 @@ jobs:
     - name: List files and folders under acls/patch
       run: |
         mkdir -p reports
-        echo "Files and folders under acls/patch:" > reports/acls_patch_report.txt
-        find acls/patch -type f -exec echo "File: {}" \; >> reports/acls_patch_report.txt
-        find acls/patch -type d -exec echo "Folder: {}" \; >> reports/acls_patch_report.txt
+        echo "Files and folders under /.github/test:" > reports/acls_report.txt
+        find /.github/test -type f -exec echo "File: {}" \; >> reports/acls_report.txt
+        find /.github/test -type d -exec echo "Folder: {}" \; >> reports/acls_report.txt
     - name: Upload report as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: acls-patch-report
-        path: reports/acls_patch_report.txt
+        name: acls-report
+        path: reports/acls_report.txt
