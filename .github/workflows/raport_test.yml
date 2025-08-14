@@ -1,0 +1,24 @@
+name: Report ACLs Patch Contents
+
+on:
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: List files and folders under acls/patch
+      run: |
+        mkdir -p reports
+        echo "Files and folders under acls/patch:" > reports/acls_patch_report.txt
+        find acls/patch -type f -exec echo "File: {}" \; >> reports/acls_patch_report.txt
+        find acls/patch -type d -exec echo "Folder: {}" \; >> reports/acls_patch_report.txt
+    - name: Upload report as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: acls-patch-report
+        path: reports/acls_patch_report.txt
