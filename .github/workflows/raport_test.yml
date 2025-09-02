@@ -18,7 +18,7 @@ jobs:
         find /.github/test -type f -exec echo "File: {}" \; >> reports/acls_report.txt
         find /.github/test -type d -exec echo "Folder: {}" \; >> reports/acls_report.txt
     - name: Upload report as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: acls-report
         path: reports/acls_report.txt
